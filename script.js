@@ -2,8 +2,12 @@ let preguntaIndex = 0;
 let mensajeIndex = 0;
 const preguntas = document.querySelectorAll(".pregunta");
 const mensajes = document.querySelectorAll(".mensaje");
+const musica = document.getElementById("musica");
 
 function iniciarHistoria() {
+    // Reproducir música al hacer clic en "Sí"
+    musica.play(); 
+
     document.getElementById("inicio").style.display = "none";
     document.getElementById("preguntas").style.display = "block";
 }
@@ -24,10 +28,14 @@ function mostrarMensaje() {
         mensajes[mensajeIndex].style.display = "block";
         mensajeIndex++;
         setTimeout(() => {
-            mensajes[mensajeIndex].style.display = "none";
-            mensajeIndex++;
-            mostrarMensaje();
-        }, 7000);
+            mensajes[mensajeIndex - 1].style.display = "none"; // Ocultar el mensaje anterior
+            if (mensajeIndex === mensajes.length) {
+                // Cuando llegamos al último mensaje
+                mostrarTextoFinal();
+            } else {
+                mostrarMensaje(); // Llamar recursivamente para el siguiente mensaje
+            }
+        }, 7000); // Mostrar una nueva foto cada 7 segundos
     }
 }
 
@@ -66,22 +74,6 @@ function mostrarSuperTexto() {
     }, 3000);
 }
 
-function mostrarMensaje() {
-    if (mensajeIndex < mensajes.length) {
-        mensajes[mensajeIndex].style.display = "block";
-        mensajeIndex++;
-        setTimeout(() => {
-            mensajes[mensajeIndex - 1].style.display = "none"; // Ocultar el mensaje anterior
-            if (mensajeIndex === mensajes.length) {
-                // Cuando llegamos al último mensaje
-                mostrarTextoFinal();
-            } else {
-                mostrarMensaje(); // Llamar recursivamente para el siguiente mensaje
-            }
-        }, 7000); // Mostrar una nueva foto cada 7 segundos
-    }
-}
-
 function mostrarTextoFinal() {
     // Mostrar el mensaje "Por si no leíste bien"
     const mensajeFinal = document.createElement("div");
@@ -102,31 +94,6 @@ function mostrarTextoFinal() {
         setTimeout(() => {
             mensajeFinal.remove(); // Eliminarlo de la página
             mostrarSuperTexto(); // Mostrar el siguiente texto grande
-        }, 1000); // Esperar un segundo antes de desaparecer
-    }, 3000); // Mostrarlo por 3 segundos
-}
-
-function mostrarSuperTexto() {
-    // Mostrar el mensaje "FELICES 8 MESES AMOR DE MI VIDA"
-    const superTexto = document.createElement("div");
-    superTexto.innerHTML = "<h1>FELICES 8 MESES AMOR DE MI VIDA</h1>";
-    superTexto.style.fontSize = "50px";
-    superTexto.style.fontFamily = "Arial, sans-serif";
-    superTexto.style.fontWeight = "bold";
-    superTexto.style.color = "#ff1493";
-    superTexto.style.textAlign = "center";
-    superTexto.style.position = "absolute";
-    superTexto.style.top = "50%";
-    superTexto.style.left = "50%";
-    superTexto.style.transform = "translate(-50%, -50%)";
-    document.body.appendChild(superTexto);
-
-    setTimeout(() => {
-        // Desaparecer el mensaje "FELICES 8 MESES AMOR DE MI VIDA"
-        superTexto.style.opacity = "0";
-        setTimeout(() => {
-            superTexto.remove(); // Eliminarlo de la página
-            mostrarUltimoTexto(); // Mostrar el mensaje final
         }, 1000); // Esperar un segundo antes de desaparecer
     }, 3000); // Mostrarlo por 3 segundos
 }
