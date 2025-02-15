@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bby Nicole.</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div id="inicio">
+        <h1>¿Estás preparada para lo que viene?</h1>
+        <button onclick="iniciarHistoria()">Sí</button>
+    </div>
+
+    <!-- Sección de preguntas -->
+    <div id="preguntas" style="display: none;">
+        <h2>Antes de empezar, quiero hacerte unas preguntas:</h2>
+        <div class="pregunta" id="pregunta1">
+            <h3>¿Te gustan las sorpresas?</h3>
+            <button onclick="mostrarPregunta(1)">Sí</button>
+        </div>
+        <div class="pregunta" id="pregunta2" style="display: none;">
+            <h3>¿Te sientes feliz hoy?</h3>
+            <button onclick="mostrarPregunta(2)">Sí</button>
+        </div>
+        <div class="pregunta" id="pregunta3" style="display: none;">
+            <h3>¿Te gustaría tener un recuerdo especial?</h3>
+            <button onclick="mostrarPregunta(3)">Sí</button>
+        </div>
+        <div class="pregunta" id="pregunta4" style="display: none;">
+            <h3>¿Estás lista para un momento único?</h3>
+            <button onclick="mostrarPregunta(4)">Sí</button>
+        </div>
+    </div>
+
+    <div id="contenido" style="display: none;">
+        <audio id="musica" loop autoplay>
+            <source src="corazon-adentro.mp3" type="audio/mpeg">
+            Tu navegador no soporta audio.
+        </audio>
+        
+        <div class="mensajes" id="mensajes">
+            <!-- Las 17 fotos con sus respectivos textos -->
+            <div class="mensaje" id="mensaje1">
+                <img src="foto1.JPG" alt="Foto 1" class="foto">
+                <p>Desde el primer día supe que eras especial.</p>
+            </div>
+            <div class="mensaje" id="mensaje2">
+                <img src="foto2.JPG" alt="Foto 2" class="foto">
+                <p>Gracias por cada risa, cada abrazo y cada momento a tu lado.</p>
+            </div>
+            <div class="mensaje" id="mensaje3">
+                <img src="foto3.JPG" alt="Foto 3" class="foto">
+                <p>No hay día en que no agradezca tenerte en mi vida.</p>
+            </div>
+            <div class="mensaje" id="mensaje4">
+                <img src="foto4.JPG" alt="Foto 4" class="foto">
+                <p>Te amo demasiado.</p>
+            </div>
+            <div class="mensaje" id="mensaje5">
+                <img src="foto5.JPG" alt="Foto 5" class="foto">
+                <p>Cada momento contigo es un regalo.</p>
+            </div>
+            <div class="mensaje" id="mensaje6">
+                <img src="foto6.JPG" alt="Foto 6" class="foto">
+                <p>Mi corazón es tuyo. 💖</p>
+            </div>
+            <div class="mensaje" id="mensaje7">
+                <img src="foto7.JPG" alt="Foto 7" class="foto">
+                <p>Gracias por hacerme sentir tan feliz.</p>
+            </div>
+            <div class="mensaje" id="mensaje8">
+                <img src="foto8.JPG" alt="Foto 8" class="foto">
+                <p>No importa lo que pase, siempre estaré a tu lado.</p>
+            </div>
+            <div class="mensaje" id="mensaje9">
+                <img src="foto9.JPG" alt="Foto 9" class="foto">
+                <p>¡Qué lindo es compartir cada día contigo!</p>
+            </div>
+            <div class="mensaje" id="mensaje10">
+                <img src="foto10.JPG" alt="Foto 10" class="foto">
+                <p>Te quiero con todo mi ser.</p>
+            </div>
+            <div class="mensaje" id="mensaje11">
+                <img src="foto11.JPG" alt="Foto 11" class="foto">
+                <p>Me haces tan feliz cada día.</p>
+            </div>
+            <div class="mensaje" id="mensaje12">
+                <img src="foto12.JPG" alt="Foto 12" class="foto">
+                <p>Juntas somos invencibles.</p>
+            </div>
+            <div class="mensaje" id="mensaje13">
+                <img src="foto13.JPG" alt="Foto 13" class="foto">
+                <p>Por siempre, mi amor. 💞</p>
+            </div>
+            <div class="mensaje" id="mensaje14">
+                <img src="foto14.JPG" alt="Foto 14" class="foto">
+                <p>Gracias por cada día a tu lado.</p>
+            </div>
+            <div class="mensaje" id="mensaje15">
+                <img src="foto15.JPG" alt="Foto 15" class="foto">
+                <p>Mi corazón es tuyo, para siempre.</p>
+            </div>
+            <div class="mensaje" id="mensaje16">
+                <img src="foto16.JPG" alt="Foto 16" class="foto">
+                <p>Te amo más de lo que imaginas.</p>
+            </div>
+            <div class="mensaje" id="mensaje17">
+                <img src="foto17.JPG" alt="Foto 17" class="foto">
+                <p>Felices 8 meses, amor de mi vida. 💖</p>
+            </div>
+        </div>
+        
+        <div id="corazones-container"></div>
+        <div id="agradecimiento" style="display: none;">
+            <h2>Felices 8 meses, amor de mi vida. 💕</h2>
+        </div>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
